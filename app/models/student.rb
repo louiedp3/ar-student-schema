@@ -8,7 +8,7 @@ class Student < ActiveRecord::Base
 
   def age
     now = Date.today
-    age = now.year - @student.birthday.year - ((now.month > @student.birthday.month || (now.month == @student.birthday.month && now.day >= @student.birthday.day)) ? 0 : 1)
+    age = now.year - self.birthday.year - ((now.month > self.birthday.month || (now.month == self.birthday.month && now.day >= self.birthday.day)) ? 0 : 1)
   end
 # implement your Student model here
 end
