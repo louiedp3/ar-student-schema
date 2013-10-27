@@ -18,3 +18,11 @@ class Student < ActiveRecord::Base
   end
 # implement your Student model here
 end
+
+class Teacher < ActiveRecord::Base
+
+  validates :email, format: { with: /.+[@].+[.].{2,}/, message: "Invalid Email"}
+  validates :email, uniqueness: true
+
+end
+
