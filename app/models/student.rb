@@ -2,6 +2,12 @@ require_relative '../../db/config'
 
 class Student < ActiveRecord::Base
 
+  validates :email, format: { with: /.+[@].+[.].{2,}/, message: "Invalid Email"}
+  validates :age, numericality: { greater_than: 3}
+  validates :phone, format: { with: /.*[\d]{3}.*[\d]{3}.*[\d]{4}.*/, message: "Invalid Phone Number"}
+  validates :email, uniqueness: true
+
+
   def name
     "#{first_name} #{last_name}"
   end
